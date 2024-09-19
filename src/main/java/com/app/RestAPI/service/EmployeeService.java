@@ -8,7 +8,14 @@ import java.util.List;
 
 
 public interface EmployeeService {
-    Employee saveEmployee(EmployeeMapper employeeMapper);
 
+    public Employee saveEmployee(EmployeeMapper employeeMapper);
 
+    public EmployeeMapper fetchEmployeeById(String empId);
+
+    public String deleteEmployeeById(String empId);
+
+    public EmployeeMapper updateEmployee(EmployeeMapper employeeMapper);
+
+    public List<EmployeeMapper> getEmployeeList();
 }

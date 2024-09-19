@@ -18,10 +18,56 @@ public class EmployeeController {
         return "Hello";
     }
 
-    @PostMapping("/employee")
-    Employee saveEmployee(@RequestBody EmployeeMapper employeeMapper) {
-        Employee emp = employeeService.saveEmployee(employeeMapper);
+    @PostMapping ("/employee")
+
+    public Employee saveEmployee(@RequestBody EmployeeMapper employeeMapper) {
+
+        Employee emp = 	employeeService.saveEmployee(employeeMapper);
         return emp;
+
+    }
+
+    @GetMapping("/fetch/{empId}")
+
+    public EmployeeMapper fetchEmployeeById(@PathVariable("empId") String empId) {
+
+        EmployeeMapper employeeMapper = employeeService.fetchEmployeeById(empId);
+        return employeeMapper;
+
+
+    }
+
+    @DeleteMapping("/delete/{empId}")
+
+    public String deleteEmployeeById(@PathVariable("empId") String empId) {
+
+        String s = employeeService.deleteEmployeeById(empId);
+        return s;
+
+
+    }
+
+
+
+
+    @GetMapping("/employees")
+
+    public List<EmployeeMapper> fetchEmployeeList() {
+
+        List<EmployeeMapper> empList = employeeService.getEmployeeList();
+        return empList;
+
+
+    }
+
+    @PutMapping("/update")
+
+    public EmployeeMapper updateEmployee(@RequestBody EmployeeMapper employeeMapper) {
+
+        EmployeeMapper emp = employeeService.updateEmployee(employeeMapper);
+        return emp;
+
+
     }
 
 
